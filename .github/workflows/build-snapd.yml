@@ -24,6 +24,7 @@ jobs:
                git clone https://aur.archlinux.org/snapd.git
          - name: Build Package
            run: |
+                ls
                 chown -R builduser snapd
                 sudo -u builduser  makepkg --syncdeps --noconfirm
 
