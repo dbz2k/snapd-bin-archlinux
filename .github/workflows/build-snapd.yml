@@ -20,6 +20,7 @@ jobs:
             pacman -Syu --noconfirm git
          - name: Download PKGBUILD
            run: |
+               cat /etc/passwd
                sudo -u builder
                git clone https://aur.archlinux.org/snapd.git
          - name: Build Package
