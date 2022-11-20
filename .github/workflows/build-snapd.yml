@@ -9,13 +9,13 @@ jobs:
     steps:
          - name: Download Dependencies 
            run: |
-            pacman -Syu --noconfirm git 
+            pacman -Syu --noconfirm git sudo
          - name: Download PKGBUILD
            run: |
              git clone https://aur.archlinux.org/snapd.git
          - name: Build Package
            run: |
                 cd snapd
-                makepkg --syncdeps --noconfirm
+                sudo -u nobody makepkg --syncdeps --noconfirm
 
            
