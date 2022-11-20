@@ -25,7 +25,7 @@ jobs:
          - name: Build Package
            run: |
                 ls
-                chown builuder -R snapd
+                chown builduser -R snapd
                 sudo -u builduser  makepkg --syncdeps --noconfirm
 
            
