@@ -12,11 +12,11 @@ jobs:
             sudo pacman -Syu --noconfirm git
          - name: Download PKGBUILD
            run: |
-               cd /tmp/
+               su builduser
                git clone https://aur.archlinux.org/snapd.git
          - name: Build Package
            run: |
-               cd /tmp/snapd
+               su builduser
                makepkg --syncdeps --noconfirm
 
 
