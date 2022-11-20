@@ -22,8 +22,7 @@ jobs:
          - name: Download PKGBUILD
            run: |
                cat /etc/passwd
-               sudo -u builduser
-               git clone https://aur.archlinux.org/snapd.git
+               sudo -u builduser git clone https://aur.archlinux.org/snapd.git
          - name: Build Package
            run: |
                 sudo -u builduser
