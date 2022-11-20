@@ -9,7 +9,7 @@ jobs:
     steps:
          - name: Download Dependencies 
            run: |
-            pacman -Syu --noconfirm git
+            sudo pacman -Syu --noconfirm git
          - name: Download PKGBUILD
            run: |
                git clone https://aur.archlinux.org/snapd.git
