@@ -9,7 +9,7 @@ jobs:
     steps:
          - name: Take ownership of directories 
            run: |
-                sudo chown -R builduser $GITHUB_WORKSPACE
+                sudo chown -R builduser /github/home
          - name: Download dependencies 
            run: |
             sudo pacman -Syu --noconfirm git
