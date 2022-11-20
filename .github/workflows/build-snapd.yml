@@ -7,15 +7,25 @@ jobs:
     container:
       image: archlinux:base-devel
     steps:
+         - name: Create non-root account
+           run: |
+                useradd -m builder
+         - name: Configure Sudo
+           run: |
+                pacman -Syu --noconfirm sudo
+                echo "builder ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+     
          - name: Download Dependencies 
            run: |
-            pacman -Syu --noconfirm git sudo
+            pacman -Syu --noconfirm git
          - name: Download PKGBUILD
            run: |
-             sudo -u nobody git clone https://aur.archlinux.org/snapd.git
+               sudo - u builder
+               git clone https://aur.archlinux.org/snapd.git
          - name: Build Package
            run: |
+                sudo -u builder
                 cd snapd
-                sudo -u nobody makepkg --syncdeps --noconfirm
+                makepkg --syncdeps --noconfirm
 
            
