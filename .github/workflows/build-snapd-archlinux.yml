@@ -1,0 +1,20 @@
+name: build-snapd-archlinux
+on: push
+
+jobs:
+  build-snapd:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/dbz2k/docker-container-builder-archlinux:main
+    steps:
+         - name: Download Dependencies 
+           run: |
+            pacman -Syu --noconfirm git
+         - name: Download PKGBUILD
+           run: |
+               git clone https://aur.archlinux.org/snapd.git
+         - name: Build Package
+           run: |
+               makepkg --syncdeps --noconfirm
+
+           
