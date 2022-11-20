@@ -1,0 +1,17 @@
+name: build-snapd
+on: push
+
+jobs:
+  node-docker:
+    runs-on: ubuntu-latest
+    container:
+      image: archlinux:base-devel
+    steps:
+         - name: Download PKGBUILD
+           run: |
+             git clone https://aur.archlinux.org/snapd.git
+         - name: Build Package
+           run: |
+                cd snapd
+                makepkg --syncdeps
+           
