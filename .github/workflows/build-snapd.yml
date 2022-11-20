@@ -9,11 +9,12 @@ jobs:
     steps:
          - name: Create non-root account
            run: |
-                useradd -m builder
+                useradd builduser
+                passwd -d builduser
          - name: Configure Sudo
            run: |
                 pacman -Syu --noconfirm sudo
-                echo "builder ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+                printf 'builduser ALL=(ALL) ALL\n' | tee -a /etc/sudoers
      
          - name: Download Dependencies 
            run: |
@@ -21,11 +22,11 @@ jobs:
          - name: Download PKGBUILD
            run: |
                cat /etc/passwd
-               sudo -u builder
+               sudo -u builduser
                git clone https://aur.archlinux.org/snapd.git
          - name: Build Package
            run: |
-                sudo -u builder
+                sudo -u builduser
                 cd snapd
                 makepkg --syncdeps --noconfirm
 
