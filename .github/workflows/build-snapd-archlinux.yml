@@ -16,5 +16,6 @@ jobs:
          - name: Build Package
            run: |
                makepkg --syncdeps --noconfirm
+               ls
 
            
