@@ -18,6 +18,7 @@ jobs:
                git clone https://aur.archlinux.org/snapd.git
          - name: Build package
            run: |
+               cd snapd
                makepkg --syncdeps --noconfirm
 
 
