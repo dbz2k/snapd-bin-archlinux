@@ -21,10 +21,13 @@ jobs:
             pacman -Syu --noconfirm git
          - name: Download PKGBUILD
            run: |
-               cd /home/builduser
-               sudo -u builduser git clone https://aur.archlinux.org/snapd.git
+               sudo -u builduser 
+               cd ~/
+               git clone https://aur.archlinux.org/snapd.git
          - name: Build Package
            run: |
-                sudo -u builduser && cd /home/builder/snapd && makepkg --syncdeps --noconfirm
+                sudo -u builduser 
+                cd ~/
+                makepkg --syncdeps --noconfirm
 
            
