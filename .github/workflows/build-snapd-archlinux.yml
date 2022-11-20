@@ -7,16 +7,17 @@ jobs:
     container:
       image: ghcr.io/dbz2k/docker-container-builder-archlinux:main
     steps:
-         - name: Download Dependencies 
+         - name: Take ownership of directories 
+           run: |
+                sudo chown -R builduser /github/workspace /github/home
+         - name: Download dependencies 
            run: |
             sudo pacman -Syu --noconfirm git
          - name: Download PKGBUILD
            run: |
-               su builduser
                git clone https://aur.archlinux.org/snapd.git
-         - name: Build Package
+         - name: Build package
            run: |
-               su builduser
                makepkg --syncdeps --noconfirm
 
 
