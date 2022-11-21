@@ -9,7 +9,7 @@ jobs:
     steps:
          - name: Download PKGBUILD
            run: |
-                chown -R builduser $HOME &&
+                chown -R builduser /home/runner/ &&
                 ls -l &&
                 sudo -u builduser touch testfie.txt &&
                 git clone https://aur.archlinux.org/snapd.git &&
