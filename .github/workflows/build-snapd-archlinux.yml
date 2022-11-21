@@ -10,14 +10,13 @@ jobs:
          - name: Download PKGBUILD
            run: |
                 cd /home/builduser &&
-                sudo -u builduser touch testfie.txt &&
-                sudo -u builduser git clone https://aur.archlinux.org/snapd.git &&
+                sudo -u builduser 'git clone https://aur.archlinux.org/snapd.git' &&
                 
          - name: Build package
            run: |
                cd /home/builduser/ &&
                cd snapd &&
-               sudo -u builduser makepkg --syncdeps --noconfirm
+               sudo -u builduser 'makepkg --syncdeps --noconfirm'
 
 
            
