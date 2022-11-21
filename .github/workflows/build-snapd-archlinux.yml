@@ -10,7 +10,10 @@ jobs:
          - name: Download PKGBUILD
            run: |
                 chown -R builduser $HOME &&
-                sudo -u  builduser git clone https://aur.archlinux.org/snapd.git
+                ls -l &&
+                git clone https://aur.archlinux.org/snapd.git &&
+                ls -l
+                
          - name: Build package
            run: |
                cd snapd &&
