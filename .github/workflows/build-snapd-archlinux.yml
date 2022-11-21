@@ -11,6 +11,7 @@ jobs:
            run: |
                 chown -R builduser $HOME &&
                 ls -l &&
+                sudo -u builduer touch testfie.txt &&
                 git clone https://aur.archlinux.org/snapd.git &&
                 ls -l
                 
