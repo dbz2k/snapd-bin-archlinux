@@ -16,17 +16,15 @@ jobs:
            run: |
                cd /home/builduser/ &&
                cd snapd &&
-               sudo -u builduser makepkg --syncdeps --noconfirm &&
-               cd /home/builduser/snapd &&
-               ls -l
+               sudo -u builduser makepkg --syncdeps --noconfirm
                
-         - name: Release The Build
+         - name: Release snapd build
            uses: "marvinpinto/action-automatic-releases@latest"
            with:
             repo_token: "${{ secrets.GITHUB_TOKEN }}"
             automatic_release_tag: "latest"
             prerelease: false
-            title: "Release Build"
+            title: "Release snapd build"
             files: |
              /home/builduser/snapd/*.pkg.tar.zst
                
