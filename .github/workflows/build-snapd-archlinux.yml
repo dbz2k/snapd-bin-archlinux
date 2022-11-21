@@ -11,11 +11,11 @@ jobs:
            run: |
                 cd /home/builduser &&
                 sudo -u builduser touch testfie.txt &&
-                git clone https://aur.archlinux.org/snapd.git &&
-                ls -l
+                sudo -u builduser git clone https://aur.archlinux.org/snapd.git &&
                 
          - name: Build package
            run: |
+               cd /home/builduser/ &&
                cd snapd &&
                sudo -u builduser makepkg --syncdeps --noconfirm
 
