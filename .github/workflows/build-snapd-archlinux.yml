@@ -1,11 +1,16 @@
 name: build-snapd-archlinux
-on: push
+on:
+  push:
+    branches: ['main']
+  schedule:
+    - cron: '30 8 1,15 * *'
+
 
 jobs:
   build-snapd:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/dbz2k/docker-container-builder-archlinux-makepkg:main
+      image: ghcr.io/dbz2k/docker-container-builder-archlinux-makepkg:nightly
     steps:
          - name: Download PKGBUILD
            run: |
