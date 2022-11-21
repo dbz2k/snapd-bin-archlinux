@@ -9,7 +9,7 @@ jobs:
     steps:
          - name: Download PKGBUILD
            run: |
-                sudo chown -R builduser $HOME 
+                chown -R builduser $HOME 
                 sudo -u  builduser && 
                 git clone https://aur.archlinux.org/snapd.git
          - name: Build package
