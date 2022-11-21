@@ -5,20 +5,15 @@ jobs:
   build-snapd:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/dbz2k/docker-container-builder-archlinux:main
+      image: ghcr.io/dbz2k/docker-container-builder-archlinux-makepkg:main
     steps:
-         - name: Download dependencies 
-           run: |
-            sudo pacman -Syu --noconfirm git
          - name: Download PKGBUILD
            run: |
-               cd ~/
-               git clone https://aur.archlinux.org/snapd.git
+               sudo -u builduser sudo git clone https://aur.archlinux.org/snapd.git
          - name: Build package
            run: |
-               cd ~/
                cd snapd
-               makepkg --syncdeps --noconfirm
+               sudo -u builduser sudo makepkg --syncdeps --noconfirm
 
 
            
