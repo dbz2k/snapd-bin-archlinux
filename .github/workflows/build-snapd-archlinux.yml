@@ -16,7 +16,10 @@ jobs:
            run: |
                cd /home/builduser/ &&
                cd snapd &&
-               sudo -u builduser makepkg --syncdeps --noconfirm
+               sudo -u builduser makepkg --syncdeps --noconfirm &&
+               cd /home/builduser/snapd &&
+               ls -l
+               
 
 
            
