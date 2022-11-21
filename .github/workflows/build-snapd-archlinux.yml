@@ -20,6 +20,16 @@ jobs:
                cd /home/builduser/snapd &&
                ls -l
                
+         - name: Release The Build
+           uses: "marvinpinto/action-automatic-releases@latest"
+           with:
+            repo_token: "${{ secrets.GITHUB_TOKEN }}"
+            automatic_release_tag: "latest"
+            prerelease: false
+            title: "Release Build"
+            files: |
+             /home/builduser/snapd/*.pkg.tar.zst
+               
 
 
            
