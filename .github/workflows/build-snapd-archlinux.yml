@@ -9,11 +9,11 @@ jobs:
     steps:
          - name: Download PKGBUILD
            run: |
-                sudo -u  builduser cd /home/builduser && 
+                sudo -u  builduser -D /home/builduser/ && 
                 git clone https://aur.archlinux.org/snapd.git
          - name: Build package
            run: |
-               sudo -u builduser cd /home/builder/snapd &&
+               sudo -u builduser -D /home/builduser/snapd/ &&
                makepkg --syncdeps --noconfirm
 
 
